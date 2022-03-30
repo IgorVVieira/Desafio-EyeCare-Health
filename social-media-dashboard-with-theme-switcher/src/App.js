@@ -18,9 +18,11 @@ function App() {
     if (theme === 'light') {
       window.localStorage.setItem('theme', 'dark');
       setTheme('dark');
+      window.dispatchEvent(new Event("toggleTheme"));
     } else {
       window.localStorage.setItem('theme', 'light');
       setTheme('light');
+      window.dispatchEvent(new Event("toggleTheme"));
     }
   }
 
@@ -43,7 +45,7 @@ function App() {
 
         <ContainerCard>
           <Card img={facebookImg} title={'@nathanf'} numberTitle={1987}
-            subtitle={'Followers'} footer={'12 Today'} />
+            subtitle={'Followers'} footer={'12 Today'} theme={theme}/>
 
           <Card img={twitterImg} title={'@nathanf'} numberTitle={1044}
             subtitle={'Followers'} footer={'99 Today'} />
@@ -57,13 +59,11 @@ function App() {
 
         <Title3>Overview - Today</Title3>
 
-        {/* Set when wrap */}
         <ContainerCard>
           <SmallCard title={'Page views'} img={facebookImg} quantity={87} percent={'3%'} />
           <SmallCard title={'Like'} img={facebookImg} quantity={52} percent={'2%'} />
           <SmallCard title={'Likes'} img={twitterImg} quantity={5462} percent={'2257%'}/>
           <SmallCard title={'Profile Views'} img={instagramImg} quantity={'52k'} percent={'1375%'}/>
-
         </ContainerCard>
       </Fragment>
     </ThemeProvider>
@@ -90,7 +90,7 @@ const ContainerCard = styled.div`
 
 const Title = styled.h2`
   font-size: 30px;
-  margin-left: 15px;
+  margin-left: 85px;
 `;
 
 const Title2 = styled(Title)`

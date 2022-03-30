@@ -1,18 +1,28 @@
-// import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 // import { lightTheme, darkTheme } from "../../theme";
 
 function Card(props) {
+    const [theme, setTheme] = useState('light');
+
+    useEffect(() => {
+        function fetchData() {
+            window.addEventListener('toggleTheme', () => {
+                setTheme(window.localStorage.getItem('theme'));
+            });
+        }
+        fetchData();
+    }, []);
     return (
         <StyledCard>
             <StyledDivImg>
                 <StyledImgResponsive src={props.img} alt={props.img} />
-                <h4>{props.title}</h4>
+                <StyledText>{props.title}</StyledText>
             </StyledDivImg>
 
             <div>
                 <StyledNumberTitle>{props.numberTitle}</StyledNumberTitle>
-                <h4>{props.subtitle}</h4>
+                <StyledText>{props.subtitle}</StyledText>
             </div>
 
             <div>
@@ -30,6 +40,7 @@ const StyledCard = styled.div`
     padding: 1.25rem;
     max-width: 15.625rem;
     border-top: 10px solid;
+    border-radius: 10px;
     border-image-slice: 1;
     border-width: 5px;
     border-image-source: linear-gradient(to left, #743ad5, #d53a9d);   
@@ -38,6 +49,11 @@ const StyledCard = styled.div`
     @media (max-width: 800px) {
         width: 100%;
     }
+
+    &:hover {
+        transition: .3s;
+        background-color: ${props => props.theme === 'light' ? 'white' : '#a9a9a9'};
+    }   
 `;
 
 const StyledDivImg = styled.div`
@@ -48,15 +64,20 @@ const StyledDivImg = styled.div`
 
 const StyledImgResponsive = styled.img`
     margin-top: 1.50rem;
-    max-width: 0.938rem;
-    max-height: 0.938rem;
+    max-width: 1rem;
+    max-height: 1rem;
     margin-right: 0.313rem;
     width: 100%;
     height: auto;
 `;
 
-const StyledNumberTitle = styled.h2`
-    font-size: 50px;
+const StyledText = styled.h4`
+  color: #a9a9a9;
+`;
+
+const StyledNumberTitle = styled(StyledText)`
+    font-size: 70px;
+    margin: 0;   
     font-weight: bold;
 `;
 
