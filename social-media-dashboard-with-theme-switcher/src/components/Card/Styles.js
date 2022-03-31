@@ -23,7 +23,6 @@ export const StyledCard = styled.div`
     border-image-slice: 1;
     border-width: 5px;
     background-color: ${props => props.theme.background};
-    /* border-image-source: linear-gradient(to left, #743ad5, #d53a9d);    */
     
     cursor: pointer;
 
