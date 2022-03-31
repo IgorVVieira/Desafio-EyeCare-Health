@@ -59,7 +59,7 @@ export const Title3 = styled(Title2)`
   }
 `;
 
-export const CheckBoxWrapper = styled.div`
+export const CheckBoxDiv = styled.div`
   position: relative;
 `;
 export const CheckBoxLabel = styled.label`

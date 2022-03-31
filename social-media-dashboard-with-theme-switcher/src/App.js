@@ -2,7 +2,7 @@ import React, { useState, useEffect, Fragment } from "react";
 import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "./theme";
 import GlobalTheme from "./globals";
-import { Container, Title, ButtonChange, Title2, Title3, ContainerCard, ContainerGridCard, CheckBoxWrapper, CheckBoxLabel } from "./Styles";
+import { Container, Title, ButtonChange, Title2, Title3, ContainerCard, ContainerGridCard, CheckBoxDiv, CheckBoxLabel } from "./Styles";
 
 import Card from "./components/Card/Card";
 import SmallCard from "./components/SmallCard/SmallCard";
@@ -37,10 +37,10 @@ function App() {
           <Title>
             Social Media Dashboard
           </Title>
-          <CheckBoxWrapper>
+          <CheckBoxDiv>
             <ButtonChange id="checkbox" onClick={toggleTheme} type="checkbox"/>
             <CheckBoxLabel htmlFor="checkbox" />
-          </CheckBoxWrapper>
+          </CheckBoxDiv>
         </Container>
         <Title2>Total Followers: 23,004</Title2>
 
