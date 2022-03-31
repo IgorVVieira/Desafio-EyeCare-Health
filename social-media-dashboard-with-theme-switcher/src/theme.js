@@ -1,19 +1,10 @@
 export const lightTheme = {
     body: '#F7F5F2',
-    toggleBorder: '#fff',
+    toggleBorder: '#FFFFFF',
 };
-
-export const lightThemeCard = {
-    body: '#f8f8f2',
-}
 
 export const darkTheme = {
     body: '#282a36',
     text: '#fafafa',
-    toggleBorder: '#6B8096',
+    toggleBorder: '#1E202A',
 }
-
-export const darkThemeCard = {
-    body: '#44475a',
-}
-
